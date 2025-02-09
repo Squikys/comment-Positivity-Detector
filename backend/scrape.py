@@ -1,6 +1,6 @@
 from youtube_comment_downloader import YoutubeCommentDownloader
 from itertools import islice
-from api import polarity
+from polarity import polarity
 import re
 
 def get_video_id(url):
@@ -17,5 +17,6 @@ def comment_extractor(video_url):
     for comment in islice(comments, 10):
         #print(comment["text"])
         com.append(comment["text"])
-    polarity(com)
+    emotion=polarity(com)
+    return emotion
 comment_extractor("https://www.youtube.com/watch?v=ExOzNpPZp5o")

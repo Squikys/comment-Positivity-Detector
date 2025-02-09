@@ -1,24 +1,15 @@
-from textblob import TextBlob
+from fastapi import FastAPI
+from scrape import comment_extractor
 
 
+app = FastAPI()
 
-def polarity(texts):
-    total_polarity = 0
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to FastAPI Boilerplate!"}
 
-    for text in texts:
-        blob = TextBlob(text)
-        total_polarity += blob.sentiment.polarity
-
-
-        average_polarity = total_polarity / len(texts)
-
-
-    print("Polarity:" ,average_polarity)
-
-
-    if average_polarity > 0:
-        print("Text is positive")
-    elif average_polarity < 0:
-        print("text is negaitve")
-    else:
-        print("Text is neutral")
+# Example endpoint
+@app.get("/url={url}")
+def say_hello(url):
+    emotion=comment_extractor(url)
+    return {"polarity": f"{emotion}!"}
