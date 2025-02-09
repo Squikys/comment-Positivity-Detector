@@ -9,19 +9,20 @@ def polarity(texts):
         blob = TextBlob(text)
         total_polarity += blob.sentiment.polarity
 
-
-        average_polarity = total_polarity / len(texts)
+    if len(texts)==0:
+        return "this video has no comments"
+    average_polarity = total_polarity / len(texts)
 
 
     print("Polarity:" ,average_polarity)
 
 
     if average_polarity > 0:
-        print("Text is positive")
-        return "Text is positive"
+        print("Your youtube video positive comments")
+        return "Your youtube video has positive comments"
     elif average_polarity < 0:
         print("text is negaitve")
-        return "Text is negaitve"
+        return "Your youtube video has negative comments"
     else:
         print("Text is neutral")
-        return "Text is neutral"
+        return "Your youtube video has balanced negative and postive comments"

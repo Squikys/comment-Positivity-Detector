@@ -11,12 +11,13 @@ def get_video_id(url):
 
 def comment_extractor(video_url):
     video_id=get_video_id(video_url)
+    emotion=[]
     downloader = YoutubeCommentDownloader()
     comments = downloader.get_comments(video_id)
     com=[]
     for comment in islice(comments, 10):
         #print(comment["text"])
         com.append(comment["text"])
-    emotion=polarity(com)
+    emotion.append(polarity(com))
+    emotion.append(video_id)
     return emotion
-comment_extractor("https://www.youtube.com/watch?v=ExOzNpPZp5o")
