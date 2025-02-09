@@ -3,6 +3,7 @@ import axios from "axios";
 
 
 
+
 function App() {
 
   const [url, setUrl] = useState("");
@@ -41,19 +42,20 @@ function App() {
         <nav>Scraper+</nav>
       </header>
 
-      <div className="flex  items-center flex-col py-20">
+      <div className="flex items-center flex-col py-20">
         <label htmlFor="inputname" className=" text-white font-semibold text-sm"
         >Youtube URL</label>
-        <form onSubmit={handleSubmit}>
-        <div className="mt-2 w-[100%] flex justify-center">
+        <form onSubmit={handleSubmit} className="w-[100%] flex justify-center item-center flex-col">
+        <div className="mt-2 w-[100%] flex justify-center ">
           <input
             value={url}
             onChange={handleChange}
             type="text"
             name="inputname"
-            className="block w-130  rounded-md text-white py-1.5 px-2 ring-1 ring-inset ring-gray-400 focus:text-white"
+            className="block max-w-130  w-[70%] rounded-md text-white py-1.5 px-2 ring-1 ring-inset ring-gray-400 focus:text-white"
           />
         </div>
+        <div className="flex justify-center">
         <button
         type="submit"
           className="relative flex items-center px-6 py-3 overflow-hidden font-medium transition-all bg-black rounded-md group my-5"
@@ -79,21 +81,26 @@ function App() {
             className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-white"
           >Get Started</span>
         </button>
+        </div>
         </form>
-        <label className="pt-1 w-130 block text-white font-thin text-sm">Give your youtube URL to know how much positive the youtube video is by comments</label>
+        <label className="pt-1 max-w-130  w-[70%] block text-white font-thin text-sm">Give your youtube URL to know how much positive the youtube video is by comments</label>
         {responseMessage &&
-         <div className="flex justify-center items-center p-4 flex-col">
+         <div className="flex justify-center items-center p-4 flex-col max-md:w-[100%] w-[60%] ">
+          <div className="max-w-300 w-[80%] flex justify-center">
          <iframe
-           width="560"
-           height="315"
+          className="w-[100%] aspect-[16/9]"
+          
            src={`https://www.youtube.com/embed/${id}`} // Replace with your video ID
            title="YouTube video player"
            frameBorder="0"
            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
            allowFullScreen
          ></iframe>
-        <p className="mt-4 text-white font-bold">{responseMessage}</p>
+         </div>
+        <p className="mt-4 text-white font-bold mb-40 max-w-130 w-[80%] text-center">{responseMessage}</p>
+        
         </div>}
+        
       </div>
       
       

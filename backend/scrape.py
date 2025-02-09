@@ -15,7 +15,7 @@ def comment_extractor(video_url):
     downloader = YoutubeCommentDownloader()
     comments = downloader.get_comments(video_id)
     com=[]
-    for comment in islice(comments, 10):
+    for comment in islice(comments, 100):
         #print(comment["text"])
         com.append(comment["text"])
     emotion.append(polarity(com))

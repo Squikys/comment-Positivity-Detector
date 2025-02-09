@@ -1,7 +1,5 @@
 from textblob import TextBlob
 
-
-
 def polarity(texts):
     total_polarity = 0
 
@@ -15,14 +13,16 @@ def polarity(texts):
 
 
     print("Polarity:" ,average_polarity)
-
-
-    if average_polarity > 0:
-        print("Your youtube video positive comments")
-        return "Your youtube video has positive comments"
-    elif average_polarity < 0:
-        print("text is negaitve")
+    
+    if average_polarity > 0.5:
+        return "Your youtube video has strongly positive comments"
+    elif 0.1 < average_polarity <= 0.5:
+        return "Your youtube video has postive comments"
+    elif -0.1 <= average_polarity <= 0.1:
+        return "Your youtube video has balanced negative and postive comments"
+    elif -0.5 <= average_polarity < -0.1:
         return "Your youtube video has negative comments"
     else:
-        print("Text is neutral")
-        return "Your youtube video has balanced negative and postive comments"
+        return "Your youtube video has strongly neagtive comments"
+
+   
