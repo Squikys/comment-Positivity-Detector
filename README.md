@@ -1,7 +1,7 @@
 This is a website where by sending url you can see how much positive or negative comment are there...
 
-we use a python library to extract youtube video comments youtube-comment-downloader
-we use a python library textBlob to see the positivty or negativity of the comments 
+## we use a python library to extract youtube video comments youtube-comment-downloader
+## we use a python library textBlob to see the positivty or negativity of the comments 
 
 it can say whether your youtube video has highly positive , positive , balanced , negative or highly negative comments
 
