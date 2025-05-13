@@ -1,9 +1,19 @@
 This is a website where by sending url you can see how much positive or negative comment are there...
 
-## we use a python library to extract youtube video comments youtube-comment-downloader
-## we use a python library textBlob to see the positivty or negativity of the comments 
+## We use a python library to extract youtube video comments youtube-comment-downloader
+## We use a python library textBlob to see the positivty or negativity of the comments 
 
-it can say whether your youtube video has highly positive , positive , balanced , negative or highly negative comments
+#### To run the app run this command
+
+```bash
+make compose-up
+```
+#### or
+```bash
+docker compose up
+```
+#### If docker is not available you would have to run it manually
+It can say whether your youtube video has highly positive , positive , balanced , negative or highly negative comments
 
 here are some images
 
