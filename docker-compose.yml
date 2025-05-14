@@ -1,0 +1,20 @@
+name: comment_positivity_detector
+services:
+    nginx_frontend:
+        container_name: nginx_frontend
+        build:
+          context: ./frontend/
+          dockerfile: ./Dockerfile
+        init: true
+        ports:
+            - 8080:8080
+        image: nginx_frontend
+    fastapi_backend:
+        container_name: fastapi_backend
+        build:
+          context: ./backend/
+          dockerfile: ./Dockerfile
+        init: true
+        ports:
+          - 8000:8000
+        image: fastapi_backend
